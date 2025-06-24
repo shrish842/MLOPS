@@ -11,9 +11,11 @@ from src.utils import save_object
 from src.exception import CustomException
 from src.logger import logging
 
+
+
 @dataclass #this is an decorator which is used to declare class that can contain only variable declaration
 class DataTransformationConfig:
-    preprocessor_obj_file_path=os.join('artifacts',"preprocessor.pkl")
+    preprocessor_obj_file_path=os.path.join('artifacts',"preprocessor.pkl")
     
    
 class DataTransformation:
@@ -41,7 +43,7 @@ class DataTransformation:
                 steps=[
                 ("imputer",SimpleImputer(strategy="most_frequent")),
                 ("one_hot_encoder", OneHotEncoder()),
-                ("scaler",StandardScaler())
+                ("scaler",StandardScaler(with_mean=False))
                 ]
             )    
             logging.info("Numerical columns: {numerical_columns}")

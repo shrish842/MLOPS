@@ -56,7 +56,7 @@ mlruns/
 *.pkl
 *.joblib
 models/
-.artifacts
+.artifacts/
 
 # Data (add specific data folders you don't want to track)
 data/raw/
